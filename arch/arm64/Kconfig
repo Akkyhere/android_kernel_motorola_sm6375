@@ -2024,3 +2024,5 @@ config MOT_SECURE_CAMERA
 config MOT_USB_DEBUG_LOG
 	bool "For usb debug log in factiry SW"
 	default n
+
+source "arch/arm64/boot/dts/vendor/Kconfig"

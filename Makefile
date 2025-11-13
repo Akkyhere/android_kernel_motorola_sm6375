@@ -1435,6 +1435,20 @@ dtbs_check: dtbs
 
 dtbs_install:
 	$(Q)$(MAKE) $(dtbinst)=$(dtstree)
+# ---------------------------------------------------------------------------
+# DTBO image builder
+# ---------------------------------------------------------------------------
+
+PHONY += dtbo.img
+
+dtbo.img: dtbs
+	@echo "Creating DTBO image..."
+	@mkdir -p $(objtree)/arch/arm64/boot
+	@python3 $(srctree)/scripts/mkdtboimg.py create \
+	$(objtree)/arch/arm64/boot/dtbo.img \
+	--page_size=4096 $(wildcard $(objtree)/arch/arm64/boot/dts/vendor/qcom/*.dtbo)
+	@echo "DTBO image created at $(objtree)/arch/arm64/boot/dtbo.img"
+#-------------------------
 
 ifdef CONFIG_OF_EARLY_FLATTREE
 all: dtbs

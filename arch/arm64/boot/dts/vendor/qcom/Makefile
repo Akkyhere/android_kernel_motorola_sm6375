@@ -734,6 +734,22 @@ dtb-$(CONFIG_ARCH_DIREWOLF) += direwolf-ivi-rumi.dtb \
 	direwolf-adas-adp-star.dtb
 endif
 
+# ===============================================
+# Force Rhodep DTBO build (for Moto G82 / rhodep)
+# ===============================================
+ifeq ($(CONFIG_RHODEP_DTB),y)
+dtbo-y += \
+    blair-rhodep-evt1-overlay.dtbo \
+    blair-rhodep-evt2-overlay.dtbo \
+    blair-rhodep-dvt1-overlay.dtbo \
+    blair-rhodep-dvt2-overlay.dtbo
+
+blair-rhodep-evt1-overlay.dtbo-base := blair-moto-rhodep-base.dtb
+blair-rhodep-evt2-overlay.dtbo-base := blair-moto-rhodep-base.dtb
+blair-rhodep-dvt1-overlay.dtbo-base := blair-moto-rhodep-base.dtb
+blair-rhodep-dvt2-overlay.dtbo-base := blair-moto-rhodep-base.dtb
+endif
+
 always		:= $(dtb-y)
 subdir-y	:= $(dts-dirs)
 clean-files	:= *.dtb *.dtbo
