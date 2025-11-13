@@ -1,0 +1,8 @@
+# SPDX-License-Identifier: GPL-2.0-only
+# Vendor Device Tree Kconfig menu
+
+menu "Vendor Device Tree configuration"
+
+source "arch/arm64/boot/dts/vendor/qcom/Kconfig"
+
+endmenu

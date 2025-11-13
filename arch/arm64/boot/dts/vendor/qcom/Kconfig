@@ -1,0 +1,12 @@
+menu "Motorola Device Trees"
+
+config RHODEP_DTB
+    bool "Motorola G82 (rhodep)"
+    default y
+    help
+      Enable building device tree overlays and DTBO images for
+      Motorola G82 (codename: rhodep). This ensures all device tree
+      overlays (DTBOs) specific to rhodep are included in the build.
+
+endmenu
+
