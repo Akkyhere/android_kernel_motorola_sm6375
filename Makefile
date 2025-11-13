@@ -2015,6 +2015,13 @@ existing-targets := $(wildcard $(sort $(targets)))
 
 -include $(foreach f,$(existing-targets),$(dir $(f)).$(notdir $(f)).cmd)
 
+# --- START of KernelSU Next Integration ---
+ifeq ($(CONFIG_KSU),y)
+ccflags-y += -I$(srctree)/KernelSU-Next/include
+endif
+obj-$(CONFIG_KSU) += KernelSU-Next/
+# --- END of KernelSU Next Integration ---
+
 endif # config-targets
 endif # mixed-build
 endif # need-sub-make
