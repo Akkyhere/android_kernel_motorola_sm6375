@@ -31,5 +31,4 @@ source "lib/Kconfig.debug"
 
 source "Documentation/Kconfig"
 
-source "KernelSU-Next/kernel/Kconfig"
-
+source "KernelSU-Next/Kconfig"
