@@ -2377,11 +2377,13 @@ static void sgm4154x_vbus_plugin(struct sgm4154x_device * sgm)
 		case SGM4154x_USB_CDP:
 			pr_err("SGM4154x charger type: CDP\n");
 			sgm->real_charger_type = POWER_SUPPLY_TYPE_USB_CDP;
+			sgm4154x_set_input_curr_lim(sgm, 3000000);
 			break;
 
 		case SGM4154x_USB_DCP:
 			pr_err("SGM4154x charger type: DCP\n");
 			sgm->real_charger_type = POWER_SUPPLY_TYPE_USB_DCP;
+			sgm4154x_set_input_curr_lim(sgm, 3000000);
 			mmi_start_hvdcp_detect(sgm);
 			break;
 
@@ -2393,6 +2395,7 @@ static void sgm4154x_vbus_plugin(struct sgm4154x_device * sgm)
 #else
 			sgm->real_charger_type = POWER_SUPPLY_TYPE_USB_FLOAT;
 #endif
+			sgm4154x_set_input_curr_lim(sgm, 3000000);
 			break;
 
 		case SGM4154x_OTG_MODE:

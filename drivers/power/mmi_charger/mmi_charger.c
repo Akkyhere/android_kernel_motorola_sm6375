@@ -2140,6 +2140,10 @@ static void mmi_update_battery_status(struct mmi_charger_chip *chip)
 			vbus_present? "present" : "absent");
 	}
 
+	if (vbus_present && power_watt <= 7500) {
+		power_watt = 15000;
+	}
+	
 	if ((chip->power_watt / 1000) != (power_watt / 1000)) {
 		mmi_changed = true;
 		chip->power_watt = power_watt;

@@ -190,15 +190,15 @@
 };
 
 &soc {
-	mmi_charger: mmi,charger {
+        mmi_charger: mmi,charger {
 		status = "ok";
 		compatible = "mmi,mmi-charger";
-		mmi,enable-charging-limit;
-		mmi,upper-limit-capacity = <65>;
-		mmi,lower-limit-capacity = <60>;
+		// mmi,enable-charging-limit;
+		mmi,upper-limit-capacity = <95>;
+		mmi,lower-limit-capacity = <90>;
 		mmi,heartbeat-interval = <5000>;
-		mmi,dcp-power-max = <10000>;
-		mmi,hvdcp-power-max = <15000>;
+		mmi,dcp-power-max = <15000>;
+		mmi,hvdcp-power-max = <30000>;
 	};
 
 	mmi_discrete_charger: mmi,discrete-charging {
